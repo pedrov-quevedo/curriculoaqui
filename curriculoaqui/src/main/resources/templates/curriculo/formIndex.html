@@ -176,11 +176,11 @@
                 <div class="form-row" style="margin-bottom: 12px; margin-top: 12px;" id="divInfoPessoal1">
                     <div class="form-group col-md-9">
                         <label style="float: left;">Nome</label>
-                        <input type="name" class="form-control" id="fieldNome" placeholder="Nome completo">
+                        <input type="name" class="form-control" id="fieldNome" placeholder="* Nome completo">
                     </div>
                     <div class="form-group col-md-3">
                         <label style="float: left;">Idade</label>
-                        <input type="number" class="form-control" id="fieldIdade" placeholder="Idade">
+                        <input type="number" class="form-control" id="fieldIdade" placeholder="* Idade">
                     </div>
                 </div>
 
@@ -188,15 +188,15 @@
                 <div class="form-row" style="margin-bottom: 12px;" id="divInfoPessoal2">
                     <div class="form-group col-md-5">
                         <label style="float: left;">Endereço</label>
-                        <input type="text" class="form-control" id="fieldRua" placeholder="Endereço">
+                        <input type="text" class="form-control" id="fieldRua" placeholder="* Endereço">
                     </div>
                     <div class="form-group col-md-4">
                         <label style="float: left;">Bairro</label>
-                        <input type="text" class="form-control" id="fieldBairro" placeholder="Bairro">
+                        <input type="text" class="form-control" id="fieldBairro" placeholder="* Bairro">
                     </div>
                     <div class="form-group col-md-3">
                         <label style="float: left;">CEP</label>
-                        <input type="text" class="form-control" id="fieldCep" placeholder="CEP">
+                        <input type="text" class="form-control" id="fieldCep" placeholder="* CEP">
                     </div>
                 </div>
 
@@ -204,15 +204,15 @@
                 <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal3">
                     <div class="form-group col-md-4">
                         <label style="float: left;">Cidade</label>
-                        <input type="text" class="form-control" id="fieldCidade" placeholder="Cidade">
+                        <input type="text" class="form-control" id="fieldCidade" placeholder="* Cidade">
                     </div>
                     <div class="form-group col-md-4">
                         <label style="float: left;">Telefone</label>
-                        <input type="text" class="form-control" id="fieldBairro" placeholder="Telefone">
+                        <input type="text" class="form-control" id="fieldTelefone" placeholder="Telefone">
                     </div>
                     <div class="form-group col-md-4">
                         <label style="float: left;">Celular</label>
-                        <input type="text" class="form-control" id="fieldCep" placeholder="Celular">
+                        <input type="text" class="form-control" id="fieldCelular" placeholder="* Celular">
                     </div>
                 </div>
 
@@ -220,7 +220,7 @@
                 <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal4">
                     <div class="form-group col-md-12">
                         <label style="float: left;">Email</label>
-                        <input type="email" class="form-control" id="fieldEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="fieldEmail" placeholder="* Email">
                     </div>
                 </div>
 
@@ -246,7 +246,7 @@
                 <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais2">
                     <div class="form-group col-md-12">
                         <label style="float: left;">Experiência</label>
-                        <input type="text" class="form-control" id="fieldExperiencia" placeholder="Experiência">
+                        <textarea type="text" rows="5" class="form-control" id="fieldExperiencia" placeholder="Experiência"></textarea>
                     </div>
                 </div>
 
@@ -260,11 +260,11 @@
                 <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais1">
                     <div class="form-group col-md-6">
                         <label style="float: left;">Idiomas</label>
-                        <input type="text" class="form-control" id="fieldIdiomas" placeholder="Idiomas">
+                        <textarea type="text" rows="5" class="form-control" id="fieldIdiomas" placeholder="Idiomas"></textarea>
                     </div>
                     <div class="form-group col-md-6">
                         <label style="float: left;">Formação Acadêmia</label>
-                        <input type="text" class="form-control" id="fieldFormacaoAcademica" placeholder="Formação Acadêmica">
+                        <textarea type="text" rows="5" class="form-control" id="fieldFormacaoAcademica" placeholder="Formação Acadêmica"></textarea>
                     </div>
                 </div>
 
@@ -272,7 +272,7 @@
                 <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais2">
                     <div class="form-group col-md-12">
                         <label style="float: left;">Cursos</label>
-                        <input type="text" class="form-control" id="fieldCursos" placeholder="Cursos">
+                        <textarea type="text" rows="5" class="form-control" id="fieldCursos" placeholder="Cursos"></textarea>
                     </div>
                 </div>
 
@@ -302,22 +302,7 @@
     <script>
         function newCurriculoFormShow() {
             document.getElementById("cardForm").style.display = "block";
-
-            // reseta marcadores
-            var selected = "flex-sm-fill text-sm-center nav-link active";
-            var deselected = "flex-sm-fill text-sm-center nav-link inactive";
-            document.getElementById("step-1").className = selected;
-            document.getElementById("step-2").className = deselected;
-            document.getElementById("step-3").className = deselected;
-            document.getElementById("step-4").className = deselected;
-
-            // seta a step inicial
-            document.getElementById("labelStep").innerText = "Informações pessoais 1";
-
-            //reseta botão previous, next e gerar
-            document.getElementById("previous").className = "btn btn-primary disabled";
-            document.getElementById("next").className = "btn btn-primary";
-            document.getElementById("gerar").style.visibility = "hidden";
+            clearFields();
         }
 
         function newCurriculoFormHide() {
@@ -358,6 +343,8 @@
                     document.getElementById("divInfoAdicionais2").style.display = "none";
                     document.getElementById("divInfoProfissionais1").style.display = "";
                     document.getElementById("divInfoProfissionais2").style.display = "";
+
+                    document.getElementById("cardForm").style.top = "20%";
                 } else if (document.getElementById("step-3").className === selected) {
                     document.getElementById("step-3").className = deselected;
                     document.getElementById("step-2").className = selected;
@@ -435,25 +422,117 @@
                         document.getElementById("divInfoProfissionais2").style.display = "none";
                         document.getElementById("divInfoAdicionais1").style.display = "";
                         document.getElementById("divInfoAdicionais2").style.display = "";
+
+                        document.getElementById("cardForm").style.top = "10%";
                     }
+                } else {
+                    document.getElementById("msgFields").style.visibility = "visible";
                 }
             }
         }
 
         function validFields() {
 
-            if (document.getElementById("fieldNome").value != "" &&
-                document.getElementById("fieldIdade").value != "" &&
-                document.getElementById("fieldRua").value != "" &&
-                document.getElementById("fieldBairro").value != "" &&
-                document.getElementById("fieldCep").value != "") {
-                document.getElementById("msgFields").style.visibility = "hidden";
-                return true;
-            } else {
-                document.getElementById("msgFields").style.visibility = "visible";
-                return false;
+            // valores base das classes do botão
+            var selected = "flex-sm-fill text-sm-center nav-link active";
+            var deselected = "flex-sm-fill text-sm-center nav-link inactive";
+
+            // info pessoal pt1  
+            if (document.getElementById("step-1").className === selected) {
+
+                if (document.getElementById("fieldNome").value != "" &&
+                    document.getElementById("fieldIdade").value != "" &&
+                    document.getElementById("fieldRua").value != "" &&
+                    document.getElementById("fieldBairro").value != "" &&
+                    document.getElementById("fieldCep").value != "") {
+                    return true;
+                } else {
+                    return false;
+                }
             }
 
+            // info pessoal pt2 
+            if (document.getElementById("step-2").className === selected) {
+
+                if (document.getElementById("fieldCidade").value != "" &&
+                    // document.getElementById("fieldTelefone").value != "" &&
+                    document.getElementById("fieldCelular").value != "" &&
+                    document.getElementById("fieldEmail").value != "") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            // info profissional
+            if (document.getElementById("step-3").className === selected) {
+
+                return true;
+            }
+
+            // info profissional
+            if (document.getElementById("step-4").className === selected) {
+
+                if (
+                    document.getElementById("fieldNome").value != "" &&
+                    document.getElementById("fieldIdade").value != "" &&
+                    document.getElementById("fieldRua").value != "" &&
+                    document.getElementById("fieldBairro").value != "" &&
+                    document.getElementById("fieldCep").value != "" &&
+                    document.getElementById("fieldCidade").value != "" &&
+                    // document.getElementById("fieldTelefone").value != "" &&
+                    document.getElementById("fieldCelular").value != "" &&
+                    document.getElementById("fieldEmail").value != "" &&
+                    document.getElementById("fieldIdade").value != "" &&
+                    // document.getElementById("fieldCargoAtual").value != "" &&
+                    // document.getElementById("fieldCargoExercido").value != "" &&
+                    // document.getElementById("fieldExperiencia").value != "" &&
+                    document.getElementById("fieldIdiomas").value != "" &&
+                    document.getElementById("fieldFormacaoAcademia").value != "" &&
+                    document.getElementById("fieldCursos").value != "") {
+                    document.getElementById("msgFields").style.visibility = "hidden";
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+        }
+
+        function clearFields() {
+            document.getElementById("cardForm").style.top = "20%";
+
+            // reseta marcadores
+            var selected = "flex-sm-fill text-sm-center nav-link active";
+            var deselected = "flex-sm-fill text-sm-center nav-link inactive";
+            document.getElementById("step-1").className = selected;
+            document.getElementById("step-2").className = deselected;
+            document.getElementById("step-3").className = deselected;
+            document.getElementById("step-4").className = deselected;
+
+            // seta a step inicial
+            document.getElementById("labelStep").innerText = "Informações pessoais 1";
+
+            //reseta botão previous, next e gerar
+            document.getElementById("previous").className = "btn btn-primary disabled";
+            document.getElementById("next").className = "btn btn-primary";
+            document.getElementById("gerar").style.visibility = "hidden";
+
+            //limpa fields
+            document.getElementById("fieldNome").value = "";
+            document.getElementById("fieldIdade").value = "";
+            document.getElementById("fieldRua").value = "";
+            document.getElementById("fieldBairro").value = "";
+            document.getElementById("fieldCep").value = "";
+            document.getElementById("fieldCidade").value = "";
+            document.getElementById("fieldTelefone").value = "";
+            document.getElementById("fieldCelular").value = "";
+            document.getElementById("fieldEmail").value = "";
+            document.getElementById("fieldCargoAtual").value = "";
+            document.getElementById("fieldCargoExercido").value = "";
+            document.getElementById("fieldIdiomas").value = "";
+            document.getElementById("fieldFormacaoAcademica").value = "";
+            document.getElementById("fieldCursos").value = "";
         }
     </script>
 </body>
