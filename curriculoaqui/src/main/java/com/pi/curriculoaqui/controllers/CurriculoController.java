@@ -8,6 +8,6 @@ public class CurriculoController {
 
 	@RequestMapping("/index")
 	public String formCadCurriculo() {
-		return "curriculo/formIndex";
+		return "formIndex";
 	}
 }

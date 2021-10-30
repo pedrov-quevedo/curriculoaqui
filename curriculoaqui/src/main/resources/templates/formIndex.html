@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Currículo Aqui!</title>
+
+    <link rel="icon" href="https://getbootstrap.com.br/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{.//..//style.css}" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script th:src="@{.//..//script.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+</head>
+
+<body class="text-center" id="body">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead justify-content-center">Currículo Aqui!</h3>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">Olá, deseja criar um novo currículo?</h1>
+            <p class="lead">Aqui no nosso site, você apenas preenche suas informações e nós geramos um currículo para você &#128512</p>
+            <p class="lead">
+                <h3 class="btn btn-lg btn-secondary" id="btnNewCurriculo" onclick="newCurriculoFormShow()">Gerar um novo currículo
+                </h3>
+            </p>
+        </main>
+
+        <div class="card" id="cardForm">
+
+            <h3>Novo currículo</h3>
+            <label class="text-muted" id="labelStep">Informações pessoais</label>
+
+            <nav class="nav nav-pills flex-column flex-sm-row">
+                <label class="flex-sm-fill text-sm-center nav-link active" id="step-1">Info Pessoal 1</label>
+                <label class="flex-sm-fill text-sm-center nav-link" id="step-2">Info Pessoal 2</label>
+                <label class="flex-sm-fill text-sm-center nav-link" id="step-3">Info Profissionais</label>
+                <label class="flex-sm-fill text-sm-center nav-link" id="step-4">Info Adicionais</label>
+            </nav>
+
+            <div class="container" style="margin-bottom: 12px;">
+
+                <!-- INÍCIO - FORM DE INFORMAÇÕES PESSOAIS -->
+
+                <!-- INFORMAÇÕES PESSOAIS - PARTE 1 -->
+                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px;" id="divInfoPessoal1">
+                    <div class="form-group col-md-9">
+                        <label style="float: left;">Nome</label>
+                        <input type="name" class="form-control" id="fieldNome" placeholder="* Nome completo">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label style="float: left;">Idade</label>
+                        <input type="number" class="form-control" id="fieldIdade" placeholder="* Idade">
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES PESSOAIS - PARTE 2 -->
+                <div class="form-row" style="margin-bottom: 12px;" id="divInfoPessoal2">
+                    <div class="form-group col-md-5">
+                        <label style="float: left;">Endereço</label>
+                        <input type="text" class="form-control" id="fieldRua" placeholder="* Endereço">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label style="float: left;">Bairro</label>
+                        <input type="text" class="form-control" id="fieldBairro" placeholder="* Bairro">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label style="float: left;">CEP</label>
+                        <input type="text" class="form-control" id="fieldCep" placeholder="* CEP">
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES PESSOAIS - PARTE 3 -->
+                <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal3">
+                    <div class="form-group col-md-4">
+                        <label style="float: left;">Cidade</label>
+                        <input type="text" class="form-control" id="fieldCidade" placeholder="* Cidade">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label style="float: left;">Telefone</label>
+                        <input type="text" class="form-control" id="fieldTelefone" placeholder="Telefone">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label style="float: left;">Celular</label>
+                        <input type="text" class="form-control" id="fieldCelular" placeholder="* Celular">
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES PESSOAIS - PARTE 4 -->
+                <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal4">
+                    <div class="form-group col-md-12">
+                        <label style="float: left;">Email</label>
+                        <input type="email" class="form-control" id="fieldEmail" placeholder="* Email">
+                    </div>
+                </div>
+
+                <!-- FIM - FORM DE INFORMAÇÕES PESSOAIS -->
+
+                <!-- =================================================================================================== -->
+
+                <!-- INÍCIO - FORM DE INFORMAÇÕES PROFISSIONAIS/OBJETIVOS -->
+
+                <!-- INFORMAÇÕES PROFISSIONAIS/OBJETIVOS - PARTE 1 -->
+                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais1">
+                    <div class="form-group col-md-6">
+                        <label style="float: left;">Cargo Atual</label>
+                        <input type="text" class="form-control" id="fieldCargoAtual" placeholder="Cargo atual">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label style="float: left;">Cargo Exercido</label>
+                        <input type="text" class="form-control" id="fieldCargoExercido" placeholder="Cargo exercido">
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES PROFISSIONAIS/OBJETIVOS - PARTE 2 -->
+                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais2">
+                    <div class="form-group col-md-12">
+                        <label style="float: left;">Experiência</label>
+                        <textarea type="text" rows="3" class="form-control" id="fieldExperiencia" placeholder="Experiência"></textarea>
+                    </div>
+                </div>
+
+                <!-- FIM - FORM DE INFORMAÇÕES PROFISSIONAIS/OBJETIVOS -->
+
+                <!-- =================================================================================================== -->
+
+                <!-- INÍCIO - FORM DE INFORMAÇÕES ADICIONAIS -->
+
+                <!-- INFORMAÇÕES ADICIONAIS - PARTE 1 -->
+                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais1">
+                    <div class="form-group col-md-6">
+                        <label style="float: left;">Idiomas</label>
+                        <textarea type="text" rows="2" class="form-control" id="fieldIdiomas" placeholder="Idiomas"></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label style="float: left;">Formação Acadêmia</label>
+                        <textarea type="text" rows="2" class="form-control" id="fieldFormacaoAcademica" placeholder="Formação Acadêmica"></textarea>
+                    </div>
+                </div>
+
+                <!-- INFORMAÇÕES ADICIONAIS - PARTE 2 -->
+                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais2">
+                    <div class="form-group col-md-12">
+                        <label style="float: left;">Cursos</label>
+                        <textarea type="text" rows="2" class="form-control" id="fieldCursos" placeholder="Cursos"></textarea>
+                    </div>
+                </div>
+
+                <!-- FIM - FORM DE INFORMAÇÕES ADICIONAIS -->
+
+                <button class="btn btn-danger" style="float: left;" onclick="newCurriculoFormHide()">Cancelar</button>
+
+                <button class="btn btn-primary disabled" id="previous" onclick="newCurriculoSteps('previous')">&laquo;</button>
+                <button class="btn btn-primary" id="next" onclick="newCurriculoSteps('next')">&raquo;</button>
+
+                <button class="btn btn-success" id="gerar" style="float: right; visibility: hidden;" onclick="generatePdf()">Gerar</button>
+            </div>
+        </div>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>Currículo Aqui! 2021</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="alert alert-danger fade show" role="alert" style="position: absolute; 
+        bottom:0; right: 0; margin-right: 8px; visibility: hidden;" id="msgFields">
+        Atenção, preencha todos os campo!
+    </div>
+</body>
+
+</html>
