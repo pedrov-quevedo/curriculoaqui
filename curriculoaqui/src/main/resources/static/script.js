@@ -261,20 +261,106 @@ function generatePdf() {
 
     // escreve no pdf
 
-    doc.text("")
-    doc.text(nome, 10, 20);
-    doc.text(idade, 10, 40);
-    doc.text(rua, 10, 60);
-    doc.text(bairro, 10, 80);
-    doc.text(cep, 10, 100);
-    doc.text(cidade, 10, 120);
-    doc.text(telefone, 10, 140);
-    doc.text(celular, 10, 160);
-    doc.text(email, 10, 180);
-    doc.text(cargoAtual, 10, 200);
-    doc.text(cargoExercido, 10, 210);
-    doc.text(idiomas, 10, 220);
-    doc.text(formacaoAcademica, 10, 240);
+    doc.setFontSize(32);
+    doc.text('Currículo', 85, 30);
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Nome/Idade:', 10, 50);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    doc.text(nome + ', ' + idade + ' anos', 10, 60);
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Endereço:', 10, 80);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    doc.text(rua + ' - ' + bairro, 10, 90);
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Cidade/CEP:', 10, 110);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    doc.text(cidade + ' - ' + cep, 10, 120);
+
+    if (telefone == '') {
+        doc.setFontSize(16);
+        doc.setFontStyle('bold')
+        doc.text('Email/Celular:', 10, 140);
+
+        doc.setFontSize(14);
+        doc.setFontStyle('normal')
+        doc.text(email + ' - ' + celular, 10, 150);
+    } else {
+        doc.setFontSize(16);
+        doc.setFontStyle('bold')
+        doc.text('Email/Telefone/Celular:', 10, 140);
+
+        doc.setFontSize(14);
+        doc.setFontStyle('normal')
+        doc.text(email + ' - ' + telefone + ' - ' + celular, 10, 150);
+    }
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Cargo Atual:', 10, 170);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    if (cargoAtual.length >= 32) {
+        doc.text(cargoAtual.substring(0, 32), 10, 180);
+        doc.text(cargoAtual.substring(32, cargoAtual.length), 10, 185);
+    } else {
+        doc.text(cargoAtual, 10, 180);
+    }
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Cargo Exercido:', 115, 170);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    if (cargoExercido.length >= 32) {
+        doc.text(cargoExercido.substring(0, 32), 115, 180);
+        doc.text(cargoExercido.substring(32, cargoExercido.length), 115, 185);
+    } else {
+        doc.text(cargoExercido, 115, 180);
+    }
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Idiomas:', 10, 200);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    doc.text(idiomas, 10, 210);
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Formação Acadêmica:', 115, 200);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
+    if (formacaoAcademica.length >= 32) {
+        doc.text(formacaoAcademica.substring(0, 32), 115, 210);
+        doc.text(formacaoAcademica.substring(32, formacaoAcademica.length), 115, 215);
+    } else {
+        doc.text(formacaoAcademica, 115, 210);
+    }
+
+    doc.setFontSize(16);
+    doc.setFontStyle('bold')
+    doc.text('Cursos:', 10, 240);
+
+    doc.setFontSize(14);
+    doc.setFontStyle('normal')
     doc.text(cursos, 10, 250);
-    doc.save('a4.pdf');
+
+    // abre janela para salvar pdf
+    doc.save('Currículo - ' + nome + '.pdf');
 }

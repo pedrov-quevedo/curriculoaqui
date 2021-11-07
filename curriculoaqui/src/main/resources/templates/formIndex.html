@@ -51,120 +51,121 @@
 
             <div class="container" style="margin-bottom: 12px;">
 
-                <!-- INÍCIO - FORM DE INFORMAÇÕES PESSOAIS -->
+                <form method="post">
+                    <!-- INÍCIO - FORM DE INFORMAÇÕES PESSOAIS -->
 
-                <!-- INFORMAÇÕES PESSOAIS - PARTE 1 -->
-                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px;" id="divInfoPessoal1">
-                    <div class="form-group col-md-9">
-                        <label style="float: left;">Nome</label>
-                        <input type="name" class="form-control" id="fieldNome" placeholder="* Nome completo">
+                    <!-- INFORMAÇÕES PESSOAIS - PARTE 1 -->
+                    <div class="form-row" style="margin-bottom: 12px; margin-top: 12px;" id="divInfoPessoal1">
+                        <div class="form-group col-md-9">
+                            <label style="float: left;">Nome</label>
+                            <input type="name" class="form-control" id="fieldNome" placeholder="* Nome completo" name="nome">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label style="float: left;">Idade</label>
+                            <input type="number" class="form-control" id="fieldIdade" placeholder="* Idade" name="idade">
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label style="float: left;">Idade</label>
-                        <input type="number" class="form-control" id="fieldIdade" placeholder="* Idade">
-                    </div>
-                </div>
 
-                <!-- INFORMAÇÕES PESSOAIS - PARTE 2 -->
-                <div class="form-row" style="margin-bottom: 12px;" id="divInfoPessoal2">
-                    <div class="form-group col-md-5">
-                        <label style="float: left;">Endereço</label>
-                        <input type="text" class="form-control" id="fieldRua" placeholder="* Endereço">
+                    <!-- INFORMAÇÕES PESSOAIS - PARTE 2 -->
+                    <div class="form-row" style="margin-bottom: 12px;" id="divInfoPessoal2">
+                        <div class="form-group col-md-5">
+                            <label style="float: left;">Endereço</label>
+                            <input type="text" class="form-control" id="fieldRua" placeholder="* Endereço" name="rua">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label style="float: left;">Bairro</label>
+                            <input type="text" class="form-control" id="fieldBairro" placeholder="* Bairro" name="bairro">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label style="float: left;">CEP</label>
+                            <input type="text" class="form-control" id="fieldCep" placeholder="* CEP" name="cep">
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label style="float: left;">Bairro</label>
-                        <input type="text" class="form-control" id="fieldBairro" placeholder="* Bairro">
+
+                    <!-- INFORMAÇÕES PESSOAIS - PARTE 3 -->
+                    <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal3">
+                        <div class="form-group col-md-4">
+                            <label style="float: left;">Cidade</label>
+                            <input type="text" class="form-control" id="fieldCidade" placeholder="* Cidade" name="cidade">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label style="float: left;">Telefone</label>
+                            <input type="text" class="form-control" id="fieldTelefone" placeholder="Telefone" name="telefone">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label style="float: left;">Celular</label>
+                            <input type="text" class="form-control" id="fieldCelular" placeholder="* Celular" name="celular">
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label style="float: left;">CEP</label>
-                        <input type="text" class="form-control" id="fieldCep" placeholder="* CEP">
+
+                    <!-- INFORMAÇÕES PESSOAIS - PARTE 4 -->
+                    <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal4">
+                        <div class="form-group col-md-12">
+                            <label style="float: left;">Email</label>
+                            <input type="email" class="form-control" id="fieldEmail" placeholder="* Email" name="email">
+                        </div>
                     </div>
-                </div>
 
-                <!-- INFORMAÇÕES PESSOAIS - PARTE 3 -->
-                <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal3">
-                    <div class="form-group col-md-4">
-                        <label style="float: left;">Cidade</label>
-                        <input type="text" class="form-control" id="fieldCidade" placeholder="* Cidade">
+                    <!-- FIM - FORM DE INFORMAÇÕES PESSOAIS -->
+
+                    <!-- =================================================================================================== -->
+
+                    <!-- INÍCIO - FORM DE INFORMAÇÕES PROFISSIONAIS/OBJETIVOS -->
+
+                    <!-- INFORMAÇÕES PROFISSIONAIS/OBJETIVOS - PARTE 1 -->
+                    <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais1">
+                        <div class="form-group col-md-6">
+                            <label style="float: left;">Cargo Atual</label>
+                            <input type="text" class="form-control" id="fieldCargoAtual" placeholder="Cargo atual" name="cargoAtual">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="float: left;">Cargo Exercido</label>
+                            <input type="text" class="form-control" id="fieldCargoExercido" placeholder="Cargo exercido" name="cargoExercido">
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label style="float: left;">Telefone</label>
-                        <input type="text" class="form-control" id="fieldTelefone" placeholder="Telefone">
+
+                    <!-- INFORMAÇÕES PROFISSIONAIS/OBJETIVOS - PARTE 2 -->
+                    <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais2">
+                        <div class="form-group col-md-12">
+                            <label style="float: left;">Experiência</label>
+                            <textarea type="text" rows="3" class="form-control" id="fieldExperiencia" placeholder="Experiência"></textarea>
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label style="float: left;">Celular</label>
-                        <input type="text" class="form-control" id="fieldCelular" placeholder="* Celular">
+
+                    <!-- FIM - FORM DE INFORMAÇÕES PROFISSIONAIS/OBJETIVOS -->
+
+                    <!-- =================================================================================================== -->
+
+                    <!-- INÍCIO - FORM DE INFORMAÇÕES ADICIONAIS -->
+
+                    <!-- INFORMAÇÕES ADICIONAIS - PARTE 1 -->
+                    <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais1">
+                        <div class="form-group col-md-6">
+                            <label style="float: left;">Idiomas</label>
+                            <textarea type="text" rows="2" class="form-control" id="fieldIdiomas" placeholder="Idiomas" name="idiomas"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="float: left;">Formação Acadêmia</label>
+                            <textarea type="text" rows="2" class="form-control" id="fieldFormacaoAcademica" placeholder="Formação Acadêmica" name="formacaoAcademica"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <!-- INFORMAÇÕES PESSOAIS - PARTE 4 -->
-                <div class="form-row" style="margin-bottom: 12px; display: none;" id="divInfoPessoal4">
-                    <div class="form-group col-md-12">
-                        <label style="float: left;">Email</label>
-                        <input type="email" class="form-control" id="fieldEmail" placeholder="* Email">
+                    <!-- INFORMAÇÕES ADICIONAIS - PARTE 2 -->
+                    <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais2">
+                        <div class="form-group col-md-12">
+                            <label style="float: left;">Cursos</label>
+                            <textarea type="text" rows="2" class="form-control" id="fieldCursos" placeholder="Cursos" name="cursos"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <!-- FIM - FORM DE INFORMAÇÕES PESSOAIS -->
-
-                <!-- =================================================================================================== -->
-
-                <!-- INÍCIO - FORM DE INFORMAÇÕES PROFISSIONAIS/OBJETIVOS -->
-
-                <!-- INFORMAÇÕES PROFISSIONAIS/OBJETIVOS - PARTE 1 -->
-                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais1">
-                    <div class="form-group col-md-6">
-                        <label style="float: left;">Cargo Atual</label>
-                        <input type="text" class="form-control" id="fieldCargoAtual" placeholder="Cargo atual">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label style="float: left;">Cargo Exercido</label>
-                        <input type="text" class="form-control" id="fieldCargoExercido" placeholder="Cargo exercido">
-                    </div>
-                </div>
-
-                <!-- INFORMAÇÕES PROFISSIONAIS/OBJETIVOS - PARTE 2 -->
-                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoProfissionais2">
-                    <div class="form-group col-md-12">
-                        <label style="float: left;">Experiência</label>
-                        <textarea type="text" rows="3" class="form-control" id="fieldExperiencia" placeholder="Experiência"></textarea>
-                    </div>
-                </div>
-
-                <!-- FIM - FORM DE INFORMAÇÕES PROFISSIONAIS/OBJETIVOS -->
-
-                <!-- =================================================================================================== -->
-
-                <!-- INÍCIO - FORM DE INFORMAÇÕES ADICIONAIS -->
-
-                <!-- INFORMAÇÕES ADICIONAIS - PARTE 1 -->
-                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais1">
-                    <div class="form-group col-md-6">
-                        <label style="float: left;">Idiomas</label>
-                        <textarea type="text" rows="2" class="form-control" id="fieldIdiomas" placeholder="Idiomas"></textarea>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label style="float: left;">Formação Acadêmia</label>
-                        <textarea type="text" rows="2" class="form-control" id="fieldFormacaoAcademica" placeholder="Formação Acadêmica"></textarea>
-                    </div>
-                </div>
-
-                <!-- INFORMAÇÕES ADICIONAIS - PARTE 2 -->
-                <div class="form-row" style="margin-bottom: 12px; margin-top: 12px; display: none;" id="divInfoAdicionais2">
-                    <div class="form-group col-md-12">
-                        <label style="float: left;">Cursos</label>
-                        <textarea type="text" rows="2" class="form-control" id="fieldCursos" placeholder="Cursos"></textarea>
-                    </div>
-                </div>
-
-                <!-- FIM - FORM DE INFORMAÇÕES ADICIONAIS -->
+                    <!-- FIM - FORM DE INFORMAÇÕES ADICIONAIS -->
+                    <button class="btn btn-success" id="gerar" style="float: right; visibility: hidden;" onclick="generatePdf()" type="submit">Gerar</button>
+                </form>
 
                 <button class="btn btn-danger" style="float: left;" onclick="newCurriculoFormHide()">Cancelar</button>
 
                 <button class="btn btn-primary disabled" id="previous" onclick="newCurriculoSteps('previous')">&laquo;</button>
                 <button class="btn btn-primary" id="next" onclick="newCurriculoSteps('next')">&raquo;</button>
-
-                <button class="btn btn-success" id="gerar" style="float: right; visibility: hidden;" onclick="generatePdf()">Gerar</button>
             </div>
         </div>
 
